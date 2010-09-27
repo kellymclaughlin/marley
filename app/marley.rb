@@ -12,6 +12,8 @@ require 'rdiscount'
 require 'akismetor'
 require 'githubber'
 
+enable :run
+
 def load_or_require(file)
   (Sinatra::Application.environment == :development) ? load(file) : require(file)
 end

@@ -85,6 +85,7 @@ module Marley
       dirname       = File.dirname(file).split('/').last
       file_content  = File.read(file)
       meta_content  = file_content.slice!( self.regexp[:meta] )
+      puts "META: #{meta_content}"
       body          = file_content.sub( self.regexp[:title], '').sub( self.regexp[:perex], '').strip
       post          = Hash.new
 
@@ -102,6 +103,7 @@ module Marley
       post[:meta]         = ( meta_content ) ? YAML::load( meta_content.scan( self.regexp[:meta]).to_s ) : 
                                                {} unless options[:except].include? 'meta' or not options[:only].include? 'meta'
                                                                                       not options[:only].include? 'published_on'
+      puts "HERE: #{post[:meta]}"
       post[:updated_on]   = File.mtime( file )                                        unless options[:except].include? 'updated_on' or
                                                                                       not options[:only].include? 'updated_on'
       post[:published]    = !dirname.match(/\.draft$/)                                unless options[:except].include? 'published' or
