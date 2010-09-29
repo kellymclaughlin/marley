@@ -21,8 +21,34 @@
 <body>
 
   <div class="container">
-  <%= yield %>
+    <div class="header">
+      <h1><a href="/"><%= Marley::Configuration.blog.title %></a></h1>
+      <h3>A record of the joys and frustrations of coding 
+    </div>
+    <br />
+
+    <%= yield %>
+
+    <div id="side_bar">
+      <div id="sidebar_block"><div class="sidebar_title">About Me</div></div>
+        <p>
+          My name is Kelly McLaughlin. 
+        </p>
+        <p>
+          I'm a software engineer @ <a href="http://absolute-performance.com">Absolute Performance</a> in beautiful Boulder, Colorado.
+        </p>
+        <p>
+          My current software interests are <a href="http://www.erlang.org">Erlang</a>, Ruby, and web development with HTML5 and CSS3.
+        </p>
+        <p>
+          When I'm not working on software projects I enjoy cycling, hiking, and snow sliding. 
+        </p>
+      <div id="email_bar">
+      </div>
+    </div>
   </div><!-- /container -->
+
+
 
   <% if Marley::Configuration.ga_code && Sinatra::Application.environment == :production %>
   <script type="text/javascript">

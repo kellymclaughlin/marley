@@ -15,8 +15,11 @@ body {
 
 h1 {
   color: #193D79;
-  border-bottom: 4px solid #A69B8B;
-  padding: 0em 1em 0.4em 0em;
+  margin: 0.5em 1em 1em 0.5em;
+}
+
+h3 {
+  margin: 1em 1em 1em 0.5em;
 }
 
 pre {
@@ -107,3 +110,67 @@ li span.perex {
 #admin_panel_content a {
   color: #fff !important;
 }
+
+div.container {
+  width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.header {
+  border-bottom: 4px solid #272830;
+  background-color: #A69B8B;
+  width: 100%;
+  height: 75px;
+  /*background-image: url('/images/dog.png');*/
+  background-repeat: no-repeat;
+  background-position: 590px 6px;
+  padding: 0em 1em 0.4em 0em;
+}
+
+div#main_content {
+  float: left;
+  width: 540px;
+}
+
+div#side_bar {
+  float: right;
+  width: 182px;
+  margin-top: 25px;
+  color: #444;
+}
+
+div#sidebar_block {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 4px;
+  color: #FFFFFF;
+  background-color: #A9A38B;
+}
+
+.sidebar_title {
+  padding-left: 45px;
+  padding-top: 2px;
+  font-size: 1.2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#email_bar {
+  margin-top: 20px;
+}
+
+div#social_bar {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar_post {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+div#about_main {
+  margin-top: 20px;
+}
+
