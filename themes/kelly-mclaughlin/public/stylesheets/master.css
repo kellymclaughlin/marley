@@ -11,6 +11,7 @@ body {
   font-size: 90%;
   margin: 0;
   padding: 1.5em 4em 2em 4em;
+  background: #1A3A73;
  }
 
 h1 {
@@ -61,7 +62,8 @@ li span.perex {
 }
 
 #comment_added_thanks {
-  background: #bcfa96; padding: 0.2em 0.2em 0.2em 0.5em;
+  background: #bcfa96;
+  padding: 0.2em 0.2em 0.2em 0.5em;
 }
 
 #spam_deleted {
@@ -120,24 +122,30 @@ div.container {
 div.header {
   border-bottom: 4px solid #272830;
   background-color: #A69B8B;
-  width: 100%;
+  width: 850px;
   height: 75px;
   /*background-image: url('/images/dog.png');*/
   background-repeat: no-repeat;
   background-position: 590px 6px;
   padding: 0em 1em 0.4em 0em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
 }
 
 div#main_content {
   float: left;
-  width: 540px;
+  width: 75%;
+  margin-bottom: 3em;
+  background: #fff;
 }
 
 div#side_bar {
   float: right;
-  width: 182px;
+  width: 20%;
   margin-top: 25px;
   color: #444;
+  background: #fff;
 }
 
 div#sidebar_block {
@@ -173,4 +181,12 @@ div#social_bar {
 div#about_main {
   margin-top: 20px;
 }
+
+/* Round corners */
+  
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+} 
 
