@@ -1,16 +1,24 @@
-<div id="main_content" class="round">
+<div id="main_content">
   <ul class="posts">
   <% @posts.each do |post| %>
   <li>
-    <small><%= human_date post.published_on %> &mdash;</small>
-    <strong><a href="/<%= post.id %>.html"><%= post.title %></a></strong>
-    <span class="perex"><%= post.perex %> (<%= post.comments.size %> comments)</span>
+    <div>
+      <%= human_date post.published_on %>
+    </div>
+    <div class="post_title">
+      <strong><a href="/<%= post.id %>.html"><%= post.title %></a></strong>
+    </div>
+    <div class="perex">
+      <%= post.perex %> (<%= post.comments.size %> comments)
+    </div>
   </li>
   <% end %>
   </ul>
 </div>
 <div id="side_bar">
-  <div id="sidebar_block"><div class="sidebar_title">About Me</div></div>
+  <div id="sidebar_block">
+    <div class="sidebar_title">About Me</div>
+  </div>
     <p>
       My name is Kelly McLaughlin. 
     </p>
@@ -20,10 +28,23 @@
     <p>
       My current software interests are <a href="http://www.erlang.org">Erlang</a>, Ruby, and web development with HTML5 and CSS3.
     </p>
-    <p>
-      When I'm not working on software projects I enjoy cycling, hiking, and snow sliding. 
-    </p>
+  <div id="sidebar_block">
+    <div class="sidebar_title">Contact</div>
+  </div>
   <div id="email_bar">
+    <span>mclaughlin77@gmail.com</span>
+  </div>
+  <div id="social_bar" class="inline-list">
+    <ul id="social_list">
+    <li><a href="http://twitter.com/_klm"><img src="images/twitter-icon.png" alt="Twitter" width="42px" border="0px" style="padding-bottom: 0.25em;"/></a>
+    </li>
+    <li>
+    <a href="http://www.linkedin.com/pub/kelly-mclaughlin/10/a0b/545"><img src="images/linkedin-icon.png" alt="LinkedIn" width="39px" border="0px" style="padding-bottom: 0.4em;"/></a>
+    </li>
+    <li>
+    <a href="http://github.com/mclaughlin77"><img src="images/github-icon.png" alt="Github" width="51px" border="0px" style="padding-bottom: 0em;" /></a>
+    </li>
+    </ul>
   </div>
 </div>
 

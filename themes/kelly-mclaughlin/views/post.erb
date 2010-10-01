@@ -3,11 +3,10 @@
   <div class="post">
   <h1>
     <%=h @post.title %>
-    <span class="meta">
-      <%= human_date @post.published_on %> 
-      <a href="#comments"><%= @post.comments.size %>&nbsp;comments</a>&nbsp;<a href="http://<%= hostname %>/<%= @post.id %>/feed" class="image">[Feed]</a>
-    </span>
   </h1>
+  <span class="meta">
+    <%= human_date @post.published_on %> 
+  </span>
 
   <% if @post.meta['categories'] %>
   <div class="categories">
@@ -65,7 +64,6 @@
     <% end %>
 
     <div id="comment_form">
-    <div class="container">
 
       <h3 id="add_comment">Add Comment</h3>
 
@@ -94,7 +92,6 @@
 
         <input class="submit" type="submit" value="Send message &rarr;" accesskey="s" />
       </form>
-    </div><!-- /container -->
     <div class="clear">&nbsp;</div>
     </div><!-- /comment_form -->
 

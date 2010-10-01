@@ -95,7 +95,8 @@ module Marley
       post[:title]        = file_content.scan( self.regexp[:title] ).first.to_s.strip if post[:title].nil?
       post[:published_on] = DateTime.parse( post[:published_on] ) rescue File.mtime( File.dirname(file) )
 
-      post[:perex]        = file_content.scan( self.regexp[:perex] ).first.to_s.strip unless options[:except].include? :perex or
+      puts file_content.scan( self.regexp[:perex] ).first.to_s.delete("[\"\"]")
+      post[:perex]        = file_content.scan( self.regexp[:perex] ).first.to_s.strip.delete "[\"\"]" unless options[:except].include? :perex or
                                                                                       not options[:only].include? :perex
       post[:body]         = body                                                      unless options[:except].include? :body or
                                                                                       not options[:only].include? :body
@@ -116,7 +117,7 @@ module Marley
         :title => /^#\s*(.*)\s+$/,
         :title_with_date => /^#\s*(.*)\s+\(([0-9\/]+)\)$/,
         :published_on => /.*\s+\(([0-9\/]+)\)$/,
-        :perex => /^([^\#\n]+\n)$/, 
+        :perex => /^([^\#\n]+)$/, 
         :meta  => /^\{\{\n(.*)\}\}\n$/mi # Multiline Regexp 
       } 
     end

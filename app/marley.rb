@@ -60,7 +60,7 @@ helpers do
   end
   
   def human_date(datetime)
-    datetime.strftime('%d|%m|%Y').gsub(/ 0(\d{1})/, ' \1')
+    Date::MONTHNAMES[datetime.month] + " " + datetime.day.to_s + ", " + datetime.year.to_s
   end
 
   def rfc_date(datetime)

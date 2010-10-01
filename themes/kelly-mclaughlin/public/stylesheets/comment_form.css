@@ -1,6 +1,8 @@
 /* === Comment form === */
 #comment_form 
-  { color: #444444; }
+{
+  color: #444444;
+}
 
 #comment_form label,
 #comment_form input.text,
@@ -45,4 +47,5 @@
 #comment_form .submit 
   { float: left;
     margin-left: 44em;
+    margin-bottom: 2em;
     padding: 0 1em 0 0.5em; }
