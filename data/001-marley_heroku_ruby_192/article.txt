@@ -1,0 +1,21 @@
+{{
+categories:
+  - ruby
+  - sinatra
+  - heroku
+  - marley
+}}
+
+# Using Marley with Ruby 1.9 and Heroku (2010/10/01)
+
+This is the perex of the test article with explicit date
+
+I'm still relatively new to ruby so I like when I find a project that furthers my ruby education and also accomplishes another project or task that I have wanted to get done. That was the case with setting up this blog. I read Jacob Vorreuter's [post](http://jkvor.com/marley-heroku-blogging) about blogging with marley and heroku and I agreed with the sentiments he expressed.  
+
+For those who are not familiar with [Marley](http://github.com/karmi/marley) it is a small blogging engine that uses Sinatra. Blog entries are crafted in a text editor and can use Markdown syntax.
+
+
+Play nice with ruby 1.9...
+
+Heroku setup
+
