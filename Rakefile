@@ -73,9 +73,9 @@ end
 
 namespace :server do
   
-  desc "Start server in production on Thin, port 4500"
+  desc "Start server in production on Thin, port 80"
   task :start do
-    exec "thin --rackup config/config.ru --daemonize --log log/thin.log --pid tmp/pids/thin.pid --environment production --port 4500 start && echo '> Marley started on http://localhost:4500'"
+    exec "thin --rackup config/config.ru --daemonize --log log/thin.log --pid tmp/pids/thin.pid --environment production --port 80 start && echo '> Marley started on http://localhost:80'"
   end
   
   desc "Stop server in production"
