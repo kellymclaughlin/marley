@@ -10,12 +10,91 @@ categories:
 
 This is the perex of the test article with explicit date
 
-I'm still relatively new to ruby so I like when I find a project that furthers my ruby education and also accomplishes another project or task that I have wanted to get done. That was the case with setting up this blog. I read Jacob Vorreuter's [post](http://jkvor.com/marley-heroku-blogging) about blogging with marley and heroku and I agreed with the sentiments he expressed.  
+I'm still relatively new to ruby so I like when I find a project that furthers my ruby education and also accomplishes another project or task that I have wanted to get done. That was the case with setting up this blog. I read [this](http://jkvor.com/marley-heroku-blogging) blog post by Jacob Vorreuter about blogging with Marley and Heroku and I found that I agreed with the sentiments he expressed and decided to give it a try.  
 
-For those who are not familiar with [Marley](http://github.com/karmi/marley) it is a small blogging engine that uses Sinatra. Blog entries are crafted in a text editor and can use Markdown syntax.
+For those who are not familiar with [Marley](http://github.com/karmi/marley) it is a small blogging engine that uses Sinatra. Blog entries are crafted in a text editor and can use Markdown syntax and then you can store them away in version control. 
+
+There are some disadvantages to Marley. It's definitely a minimalist blogging engine and probably not appropriate for the non-technical user or somebody who does not want to do a little hacking. Personally I view this as a benefit because of the great amount of flexiblity it presents and the fact that I like to hack away at things, but it's not for everyone.
+
+Another problem is the project seems to have gone dormant. There have been no commits to the project since February 2009. As such getting Marley to play nice with ruby 1.9 took a few changes. The biggest thing is that Sinatra 1.0 doesn't work with Ruby 1.9. Fortunately there was a very easy workaround. I just added the following line to app/marley.rb. 
+
+    enable :run
+
+Pretty simple. There were a handful of other minor changes to get it going such as changing `require 'activerecord'` to `require 'active_record'`. I also added a Gemfile to facilitate using bundler to install the gems Marley requires. You can check out the full set of changes on the master branch of my [fork](http://github.com/mclaughlin77/marley) of the project. With these changes I was able to successfully get Marley up and running.
 
 
-Play nice with ruby 1.9...
+### Setup ###
 
-Heroku setup
+First make sure all the required gems are installed.
+
+    gem install bundler; bundle install
+
+Running Marley locally is very simple. The first time run the following:
+
+    rake app:install
+
+This will create a data directory at the same level as your Marley project directory and populate it with a sample article. Subsequent restarts can be accomplished quicker with this command:
+
+    rake app:start
+
+That's it. Now point your browser to localhost:4567 and you should see the index page with a single test article listed.
+
+
+### Customization ###
+
+Marley uses themes for customization of the layout and styling. Create a branch for your blog and make your customizations there. 
+
+    git checkout -b <rad_blog_name_here>
+
+The primary stylesheet is master.css and can be found in themes/<rad_blog_name_here>/public/stylesheets. The only three erb files are layout.erb, index.erb, and post.erb and are located in themes/<rad_blog_name_here>/views. 
+
+Copy the config/config.example.yml file to config/config.yml and open it for editing. Here you can edit the name of the blog, add your name, an email address, and setup some admin credentials. You can also add a github token for post-receive hooks, and akismet key for spam protection, or a google analytics code. Make sure to add config/config.yml to version control before you attempt to push to heroku.
+
+The config/config.yml file also controls the location of the data directory that stores the blog post files and comments. The default setting is this:
+
+    data_directory: "../data"
+
+That puts it at the same level as the Marley project directory. For heroku deployment I changed it so the data directory is a subdirectory under the Marley project.
+
+    data_directory: "./data"
+
+
+### Heroku Setup ###
+
+Deploying to heroku is also a breeze. Before proceeding, make sure you have an heroku account. Now is also a good time to install the heroku gem if you have not already done so. 
+
+    gem install heroku
+
+Marley uses [Thin](http://code.macournoyer.com/thin) as its production webserver. It comes setup to listen on port 4500. If you want it to listen on port 80 or another port just edit the Rakefile and replace this line:
+
+    exec "thin --rackup config/config.ru --daemonize --log log/thin.log --pid tmp/pids/thin.pid --environment production --port 4500 start && echo '> Marley started on http://localhost:4500'" 
+
+with this:
+
+    exec "thin --rackup config/config.ru --daemonize --log log/thin.log --pid tmp/pids/thin.pid --environment production --port 80 start && echo '> Marley started on http://localhost:80'"
+
+Now it's time to push the code to heroku. The first step is to create a heroku application.
+
+    heroku create
+
+If you already have a heroku application running and you want to deploy to it, all you have to do is this:
+
+    git remote add heroku git@heroku.com:marley.git
+
+The next step will actually push the code to heroku.
+
+    git heroku push <rad_blog_name_here>:master
+
+This deploys the code from your customized branch to master on your heroku application. The only thing left is to set up the db and kick off Marley in production mode.
+
+    heroku rake db:migrate
+    heroku rake server:start
+
+And that's it. Your blog is now available to the whole world. Heroku provides free DNS setup via add-ons so you can even customize the domain. Very cool. 
+
+
+### Conclusion ###
+
+Marley is a simple, compact blogging engine, but it definitely needs some further tlc and might even benefit from a few more features; however, with a few minor changes it's usable with the lastest versions of Ruby and Sinatra (as evidenced by this blog). The beauty of open source and social coding sites like github is that anyone can take a piece of software that may have atrophied a little and, with a little work, breathe new life into it. 
+
 
