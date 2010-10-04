@@ -73,6 +73,14 @@ with this:
 
     exec "thin --rackup config/config.ru --daemonize --log log/thin.log --pid tmp/pids/thin.pid --environment production --port 80 start && echo '> Marley started on http://localhost:80'"
 
+You may also want to change the default rake task to launch Marley in production since heroku will execute the default task when it launches the application. To do this edit the Rakefile and change the following line:
+
+    task :default => 'app:start'
+
+to this:
+
+    task :default => 'server:start'
+
 Now it's time to push the code to heroku. The first step is to create a heroku application.
 
     heroku create --stack bamboo-mri-1.9.2
