@@ -79,7 +79,7 @@ Now it's time to push the code to heroku. The first step is to create a heroku a
 
 If you already have a heroku application running and you want to deploy to it, all you have to do is this:
 
-    git remote add heroku git@heroku.com:marley.git
+    git remote add heroku git@heroku.com:<heroku_app_name>.git
 
 The next step will actually push the code to heroku.
 
