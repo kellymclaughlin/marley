@@ -6,15 +6,15 @@ categories:
   - marley
 }}
 
-# Using Marley with Ruby 1.9 and Heroku (2010/10/01)
+# Using Marley with Ruby 1.9 and Heroku (2010/10/04)
 
-This is the perex of the test article with explicit date
+I'm still relatively new to ruby so I like when I find a project that furthers my ruby education and also accomplishes another project or task that I have wanted to get done. That was the case with setting up this blog. I read this blog post by Jacob Vorreuter about blogging with Marley and Heroku and I found that I agreed with the sentiments he expressed and decided to give it a try.
 
-I'm still relatively new to ruby so I like when I find a project that furthers my ruby education and also accomplishes another project or task that I have wanted to get done. That was the case with setting up this blog. I read [this](http://jkvor.com/marley-heroku-blogging) blog post by Jacob Vorreuter about blogging with Marley and Heroku and I found that I agreed with the sentiments he expressed and decided to give it a try.  
+I'm still relatively new to ruby so I like when I find a project that furthers my ruby education and also accomplishes another project or task that I have wanted to get done. Such was the case with setting up this blog. I read [this](http://jkvor.com/marley-heroku-blogging) blog post by Jacob Vorreuter about blogging with Marley and [Heroku](http://www.heroku.com) and it piqued my interest so I decided to give it a try.  
 
-For those who are not familiar with [Marley](http://github.com/karmi/marley) it is a small blogging engine that uses Sinatra. Blog entries are crafted in a text editor and can use Markdown syntax and then you can store them away in version control. 
+For those who are not familiar with [Marley](http://github.com/karmi/marley) it is a small blogging engine built on Sinatra. Blog entries are crafted in a text editor using Markdown syntax and then you can store them away in version control. 
 
-There are some disadvantages to Marley. It's definitely a minimalist blogging engine and probably not appropriate for the non-technical user or somebody who does not want to do a little hacking. Personally I view this as a benefit because of the great amount of flexiblity it presents and the fact that I like to hack away at things, but it's not for everyone.
+There are some disadvantages to Marley. It's definitely a minimalist blogging engine and probably not appropriate for the non-technical user or somebody who does not want to do a little hacking. Personally I view this as a benefit because of the great amount of flexiblity it presents and the fact that I like to hack away at things, but it is not for everyone.
 
 Another problem is the project seems to have gone dormant. There have been no commits to the project since February 2009. As such getting Marley to play nice with ruby 1.9 took a few changes. The biggest thing is that Sinatra 1.0 doesn't work with Ruby 1.9. Fortunately there was a very easy workaround. I just added the following line to app/marley.rb. 
 
@@ -33,7 +33,7 @@ Running Marley locally is very simple. The first time run the following:
 
     rake app:install
 
-This will create a data directory at the same level as your Marley project directory and populate it with a sample article. Subsequent restarts can be accomplished quicker with this command:
+This will create a data directory at the same level as your Marley project directory and populate it with a sample article. Subsequent restarts can be accomplished more quickly with this command:
 
     rake app:start
 
@@ -61,7 +61,7 @@ That puts it at the same level as the Marley project directory. For heroku deplo
 
 ### Heroku Setup ###
 
-Deploying to heroku is also a breeze. Before proceeding, make sure you have an heroku account. Now is also a good time to install the heroku gem if you have not already done so. 
+Deploying to heroku is a breeze. Before proceeding, make sure you have an heroku account. Now is also a good time to install the heroku gem if you have not already done so. 
 
     gem install heroku
 
@@ -95,6 +95,6 @@ And that's it. Your blog is now available to the whole world. Heroku provides fr
 
 ### Conclusion ###
 
-Marley is a simple, compact blogging engine, but it definitely needs some further tlc and might even benefit from a few more features; however, with a few minor changes it's usable with the lastest versions of Ruby and Sinatra (as evidenced by this blog). The beauty of open source and social coding sites like github is that anyone can take a piece of software that may have atrophied a little and, with a little work, breathe new life into it. 
+Marley is a simple, compact blogging engine, but it definitely needs some further tlc and might even benefit from a few more features; however, with a few minor changes it's usable with the lastest versions of Ruby and Sinatra (as evidenced by this blog). The beauty of open source and social coding sites like github is that anyone can take a piece of software that may have atrophied a bit and, with a little work, breathe new life into it. 
 
 
