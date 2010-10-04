@@ -9,7 +9,7 @@
       <strong><a href="/<%= post.id %>.html"><%= post.title %></a></strong>
     </div>
     <div class="perex">
-      <%= post.perex %> (<%= post.comments.size %> comments)
+      <%= post.perex %> <a href="/<%= post.id %>.html">&rarr;&nbsp;Full article</a>
     </div>
   </li>
   <% end %>
