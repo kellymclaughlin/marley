@@ -83,7 +83,7 @@ If you already have a heroku application running and you want to deploy to it, a
 
 The next step will actually push the code to heroku.
 
-    git heroku push <rad_blog_name_here>:master
+    git push heroku <rad_blog_name_here>:master
 
 This deploys the code from your customized branch to master on your heroku application. The only thing left is to set up the db and kick off Marley in production mode.
 
