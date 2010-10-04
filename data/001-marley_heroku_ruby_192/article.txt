@@ -75,7 +75,13 @@ with this:
 
 Now it's time to push the code to heroku. The first step is to create a heroku application.
 
-    heroku create
+    heroku create --stack bamboo-mri-1.9.2
+
+Using the `--stack` option allows selection of a different technology stacks. All the work so far has been done with ruby 1.9.2 so I will stick with that. You can list all the available options with this command:
+
+    heroku stack
+
+More information on heroku's stacks can be found [here](http://docs.heroku.com/stack).
 
 If you already have a heroku application running and you want to deploy to it, all you have to do is this:
 
