@@ -95,7 +95,6 @@ module Marley
       post[:title]        = file_content.scan( self.regexp[:title] ).first.to_s.strip if post[:title].nil?
       post[:published_on] = DateTime.parse( post[:published_on] ) rescue File.mtime( File.dirname(file) )
 
-      puts file_content.scan( self.regexp[:perex] ).first.to_s.delete("[\"\"]")
       post[:perex]        = file_content.scan( self.regexp[:perex] ).first.to_s.strip.delete "[\"\"]" unless options[:except].include? :perex or
                                                                                       not options[:only].include? :perex
       post[:body]         = body                                                      unless options[:except].include? :body or
